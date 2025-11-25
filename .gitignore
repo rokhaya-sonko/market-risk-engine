@@ -31,10 +31,10 @@ env/
 *.swp
 *.swo
 
-# Data
+# Data files (but not source code in data/ directories)
 *.csv
 *.xlsx
-data/
+/data/
 
 # Logs
 *.log
