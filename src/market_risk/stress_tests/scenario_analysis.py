@@ -187,7 +187,7 @@ class ScenarioAnalyzer:
                         'portfolio_return': portfolio_return,
                         'portfolio_return_pct': portfolio_return * 100
                     })
-            except:
+            except (ValueError, KeyError, TypeError):
                 continue
         
         return pd.DataFrame(results)

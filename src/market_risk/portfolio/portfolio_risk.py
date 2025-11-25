@@ -188,8 +188,7 @@ class PortfolioRisk:
             'stressed_var': stressed_var,
             'capital_multiplier': capital_multiplier,
             'capital_requirement': capital_requirement,
-            'capital_as_pct_portfolio': (capital_requirement / 
-                                        (self.weights.sum() * 100)) * 100
+            'capital_as_pct_portfolio': capital_requirement * 100
         }
     
     def optimize_risk_parity(self) -> np.ndarray:
@@ -241,10 +240,14 @@ class PortfolioRisk:
         div_ratio = self.calculate_diversification_ratio()
         capital = self.calculate_regulatory_capital()
         
+        sharpe_num = self.portfolio_return * 252
+        sharpe_den = self.portfolio_volatility * np.sqrt(252)
+        sharpe_ratio = sharpe_num / sharpe_den if sharpe_den != 0 else 0
+        
         return {
             'portfolio_return_annual': self.portfolio_return * 252,
             'portfolio_volatility_annual': self.portfolio_volatility * np.sqrt(252),
-            'sharpe_ratio': (self.portfolio_return * 252) / (self.portfolio_volatility * np.sqrt(252)),
+            'sharpe_ratio': sharpe_ratio,
             'diversification_ratio': div_ratio,
             'var_1day_relative': var_1day,
             'var_1day_absolute': var_1day * portfolio_value,
