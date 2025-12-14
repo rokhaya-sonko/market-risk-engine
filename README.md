@@ -1,10 +1,16 @@
-# Market Risk Analytics
+# Market Risk Lab
 
-A repo for market risk management and analytics, featuring data manipulation, yield curve construction, pricing with sensitivities, Value at Risk (VaR) calculations, stress testing, and portfolio risk aggregation with an interactive Streamlit dashboard.
+This repository is **strictly focused on Market Risk**.
 
-## 🚀 Features
+It illustrates how market risk is measured, explained and monitored on a portfolio:
+- market data analysis (returns, volatility, correlation regimes)
+- yield curve construction
+- pricing used as a risk input (bonds, swaps, vanilla options)
+- sensitivities (DV01, Delta, Gamma, Vega)
+- hedging as risk neutralisation
+- Value-at-Risk (VaR) and Expected Shortfall (ES)
+- stress testing
+- PnL explain and risk attribution
 
-### 1. Market Data Manipulation
-- **Stocks**: Handle equity price data with return calculations and volatility metrics
-- **FX**: Foreign exchange rate data with mean-reversion modeling
-- **Interest Rates**: Term structure data with interpolation
+
+The goal is to reproduce **real Market Risk workflows**, using simple and transparent Python implementations.
